@@ -14,7 +14,7 @@ public class Main {
 
 
         try {
-            myConnexion.connect("COM3");
+            myConnexion.connect("COM6");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -25,12 +25,7 @@ public class Main {
 
             if(playerInput.equals("g")) {
                 myConnexion.SerialWrite("g");
-                lastTime = System.currentTimeMillis();
-                long timeSince;
-                do{
-                    timeSince = System.currentTimeMillis()-lastTime;
-                    System.out.println(5000-timeSince);
-                }while (timeSince<5000);
+                scanner.nextLine().trim();
                 myConnexion.SerialWrite("s");
 
                 history.add(myConnexion.rawData(inc+""));
@@ -40,12 +35,7 @@ public class Main {
                 inc++;
             }else if(playerInput.equals("t")){
                 myConnexion.SerialWrite("g");
-                lastTime = System.currentTimeMillis();
-                long timeSince;
-                do{
-                    timeSince = System.currentTimeMillis()-lastTime;
-                    System.out.println(5000-timeSince);
-                }while (timeSince<5000);
+                scanner.nextLine().trim();
                 myConnexion.SerialWrite("s");
 
                 DataSet dataTotest = myConnexion.rawData("testData");

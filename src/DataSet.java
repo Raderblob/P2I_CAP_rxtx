@@ -19,5 +19,11 @@ public class DataSet {
             res+= myData.get(i).compareTo(otherSet.myData.get(i));
         }
         return res;
+        //temporal compression to make the variations in acceleration smoother
+        //dtw
+        //compressive sensing
+        //affinity propogation
+        //k closest nei
+        //uwave
     }
 }

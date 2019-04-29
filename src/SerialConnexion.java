@@ -65,7 +65,6 @@ public class SerialConnexion {
                 while ((len = this.in.read(buffer)) > -1) {
                     if (len > 0 ) {
                         String next = new String(buffer, 0, len);
-                        //System.out.print(next);
                         stringBuffer += next;
                     }
                     if(reset){
