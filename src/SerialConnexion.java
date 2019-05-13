@@ -44,6 +44,16 @@ public class SerialConnexion {
         return new DataSet(mysr.getRaw(),name);
     }
 
+    public ArrayList<Data> rawDataArr(){
+        return mysr.getRaw();
+    }
+
+    public boolean dataIncoming(){
+        return mysr.stringLength()>1;
+    }
+    public boolean dataEnding(){
+        return mysr.checkForEnd();
+    }
 
 
 
@@ -77,7 +87,14 @@ public class SerialConnexion {
             }
         }
 
-        public ArrayList<Data> getRaw(){
+        private int stringLength(){
+            return stringBuffer.length();
+        }
+        private boolean checkForEnd(){
+            return stringBuffer.contains("@");
+        }
+
+        private ArrayList<Data> getRaw(){
             String d[] = stringBuffer.split(";");
             String subData[];
             ArrayList<Data> res = new ArrayList<>(d.length);
